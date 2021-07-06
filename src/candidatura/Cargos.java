@@ -11,13 +11,13 @@ import java.io.*;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Bastián
+ * @author Joel
  */
 public class Cargos {
-    private ArrayList<Presidente> presidentes;
-    private ArrayList<Gore> gores;
-    private ArrayList<Concejal> concejales;
-    private ArrayList<Alcalde> alcaldes;
+    private ArrayList<Persona> presidentes;
+    private ArrayList<Persona> gores;
+    private ArrayList<Persona> concejales;
+    private ArrayList<Persona> alcaldes;
     private HashMap candidatos;
     
     public Cargos() {
@@ -28,35 +28,35 @@ public class Cargos {
         candidatos = new HashMap();
     }
 
-    public ArrayList<Presidente> getPresidentes() {
+    public ArrayList<Persona> getPresidentes() {
         return presidentes;
     }
 
-    public void setPresidentes(ArrayList<Presidente> presidentes) {
+    public void setPresidentes(ArrayList<Persona> presidentes) {
         this.presidentes = presidentes;
     }
 
-    public ArrayList<Gore> getGores() {
+    public ArrayList<Persona> getGores() {
         return gores;
     }
 
-    public void setGores(ArrayList<Gore> gores) {
+    public void setGores(ArrayList<Persona> gores) {
         this.gores = gores;
     }
 
-    public ArrayList<Concejal> getConcejales() {
+    public ArrayList<Persona> getConcejales() {
         return concejales;
     }
 
-    public void setConcejales(ArrayList<Concejal> concejales) {
+    public void setConcejales(ArrayList<Persona> concejales) {
         this.concejales = concejales;
     }
 
-    public ArrayList<Alcalde> getAlcaldes() {
+    public ArrayList<Persona> getAlcaldes() {
         return alcaldes;
     }
 
-    public void setAlcaldes(ArrayList<Alcalde> alcaldes) {
+    public void setAlcaldes(ArrayList<Persona> alcaldes) {
         this.alcaldes = alcaldes;
     }
     
@@ -130,9 +130,9 @@ public class Cargos {
     
     public void mostrarPresVotos(Cargos car){
         Presidente aux;
-        Presidente aux2 = new Presidente("aux2","aux2",0);
+        Presidente aux2 = new Presidente();
         for(int i = 0 ; i < car.presidentes.size() ; i++){
-            aux = car.presidentes.get(i);
+            aux = (Presidente) car.presidentes.get(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -142,9 +142,9 @@ public class Cargos {
     
     public void mostrarGoreVotos(Cargos car){
         Gore aux;
-        Gore aux2 = new Gore("aux2","aux2",0);
+        Gore aux2 = new Gore();
         for(int i = 0 ; i < car.gores.size() ; i++){
-            aux = car.gores.get(i);
+            aux = (Gore) car.gores.get(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -154,9 +154,9 @@ public class Cargos {
 
     public void mostrarConceVotos(Cargos car){
         Concejal aux;
-        Concejal aux2 = new Concejal("aux2","aux2",0);
+        Concejal aux2 = new Concejal();
         for(int i = 0 ; i < car.concejales.size() ; i++){
-            aux = car.concejales.get(i);
+            aux = (Concejal) car.concejales.get(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -166,9 +166,9 @@ public class Cargos {
 
     public void mostrarAlcaVotos(Cargos car){
         Alcalde aux;
-        Alcalde aux2 = new Alcalde("aux2","aux2",0);
+        Alcalde aux2 = new Alcalde();
         for(int i = 0 ; i < car.alcaldes.size() ; i++){
-            aux = car.alcaldes.get(i);
+            aux = (Alcalde) car.alcaldes.get(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -204,7 +204,7 @@ public class Cargos {
         String mostrar = "";
         Presidente aux;
         for(int i = 0 ; i < car.presidentes.size() ; i++){
-            aux = car.presidentes.get(i);
+            aux = (Presidente) car.presidentes.get(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -219,7 +219,7 @@ public class Cargos {
         String mostrar = "";
         Gore aux;
         for(int i = 0 ; i < car.gores.size() ; i++){
-            aux = car.gores.get(i);
+            aux = (Gore) car.gores.get(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -234,7 +234,7 @@ public class Cargos {
         String mostrar = "";
         Concejal aux;
         for(int i = 0 ; i < car.concejales.size() ; i++){
-            aux = car.concejales.get(i);
+            aux = (Concejal) car.concejales.get(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -249,7 +249,7 @@ public class Cargos {
         String mostrar = "";
         Alcalde aux;
         for(int i = 0 ; i < car.alcaldes.size() ; i++){
-            aux = car.alcaldes.get(i);
+            aux = (Alcalde) car.alcaldes.get(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -265,7 +265,7 @@ public class Cargos {
     
         Presidente aux;
         for(int i = 0 ; i < car.presidentes.size() ; i++){
-            aux = car.presidentes.get(i);
+            aux = (Presidente) car.presidentes.get(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -276,7 +276,7 @@ public class Cargos {
         
         Gore aux2;
         for(int i = 0 ; i < car.gores.size() ; i++){
-            aux2 = car.gores.get(i);
+            aux2 = (Gore) car.gores.get(i);
             mostrar = mostrar + aux2.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux2.getPartido();
@@ -287,7 +287,7 @@ public class Cargos {
         
          Concejal aux3;
         for(int i = 0 ; i < car.concejales.size() ; i++){
-            aux3 = car.concejales.get(i);
+            aux3 = (Concejal) car.concejales.get(i);
             mostrar = mostrar + aux3.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux3.getPartido();
@@ -298,7 +298,7 @@ public class Cargos {
         
         Alcalde aux4;
         for(int i = 0 ; i < car.alcaldes.size() ; i++){
-            aux4 = car.alcaldes.get(i);
+            aux4 = (Alcalde) car.alcaldes.get(i);
             mostrar = mostrar + aux4.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux4.getPartido();

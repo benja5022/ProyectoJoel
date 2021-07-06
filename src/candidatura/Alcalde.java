@@ -5,60 +5,66 @@
  */
 package candidatura;
 
+import static candidatura.Candidatura.car;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Bastián
+ * @author Joel
  */
-public class Alcalde {
-    private String nombre;
-    private String partido;
-    private int votos;
-
-    public Alcalde(String nombre, String partido, int votos) {
-        this.nombre = nombre;
-        this.partido = partido;
-        this.votos = votos;
+public class Alcalde extends Persona{
+    private  int cantAnos; //Cantidad de años que ha sido alcalde
+    private  String comuna;
+    
+    public Alcalde(int cantAnos, String comuna, String nombre, String partido, int votos) {
+        super(nombre, partido, votos);
+        this.cantAnos = cantAnos;
+        this.comuna = comuna;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPartido() {
-        return partido;
-    }
-
-    public void setPartido(String partido) {
-        this.partido = partido;
-    }
-
-    public int getVotos() {
-        return votos;
-    }
-
-    public void setVotos(int votos) {
-        this.votos = votos;
+    public Alcalde() {
+        super(null, null, 0);
     }
     
-    public void aumentarVotos(int aux){
-        votos = votos + aux;
+    public int getCantAnos() {
+        return cantAnos;
     }
-    public void aumentarVotos(){
-        System.out.println("votos correctamente aumentados");
+
+    public void setCantAnos(int cantAnos) {
+        this.cantAnos = cantAnos;
     }
-    public static void agregarAlca(Cargos car){
-    String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
-    String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
-    int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
-    Alcalde aux = new Alcalde(nom, par, vot);
-    car.agregarAlca(aux);
+
+    public String getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(String comuna) {
+        this.comuna = comuna;
+    }
     
-    JOptionPane.showMessageDialog(null,"El nuevo Alcalde se ha agregado correctamente");
+    
+   
+
+    @Override
+    public void agregar() {
+        String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
+        String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
+        int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
+        String com=JOptionPane.showInputDialog("Ingrese cantidad de años que ha ejercido el cargo");
+        int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la comuna a la que se presenta"));
+        Alcalde aux = new Alcalde(cant,com,nom, par, vot);
+        car.agregarAlca(aux);
+
+        JOptionPane.showMessageDialog(null,"El nuevo Alcalde se ha agregado correctamente");
+    }
+
+    @Override
+     public void cantidadDeAnos(){
+        JOptionPane.showMessageDialog(null,"Un alcalde esta en el poder durante 4 años , y puede ser reelecto las veces que sea");
+     }
+     
+    @Override
+    public void poder(){
+        JOptionPane.showMessageDialog(null,"Un alcalde tiene poder en una comuna");
     }
 }

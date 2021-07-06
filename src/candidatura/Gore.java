@@ -5,60 +5,67 @@
  */
 package candidatura;
 
+import static candidatura.Candidatura.car;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Bastián
+ * @author Joel
  */
-public class Gore {
-    private String nombre;
-    private String partido;
-    private int votos;
-
-    public Gore(String nombre, String partido, int votos) {
-        this.nombre = nombre;
-        this.partido = partido;
-        this.votos = votos;
+public class Gore extends Persona{
+    private int cantCarg;
+    private String region;
+    
+    public Gore(int cantCarg, String region, String nombre, String partido, int votos) {
+        super(nombre, partido, votos);
+        this.cantCarg = cantCarg;
+        this.region = region;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPartido() {
-        return partido;
-    }
-
-    public void setPartido(String partido) {
-        this.partido = partido;
-    }
-
-    public int getVotos() {
-        return votos;
-    }
-
-    public void setVotos(int votos) {
-        this.votos = votos;
+    public Gore() {
+        super(null, null, 0);
     }
     
-    public void aumentarVotos(int aux){
-        votos = votos + aux;
+    public int getCantCarg() {
+        return cantCarg;
     }
-    public void aumentarVotos(){
-        System.out.println("votos correctamente aumentados");
+
+    public void setCantCarg(int cantCarg) {
+        this.cantCarg = cantCarg;
     }
-    public static void agregarGore(Cargos car){
-    String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
-    String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
-    int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
-    Gore aux = new Gore(nom, par, vot);
-    car.agregarGore(aux);
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
     
-    JOptionPane.showMessageDialog(null,"El nuevo Gore se ha agregado correctamente");
+    
+    
+    
+
+    @Override
+    public void agregar() {
+        String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
+        String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
+        int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
+        String reg=JOptionPane.showInputDialog("Ingrese la region a la que se presenta el Candidato");
+        int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en que el Candidato ha ejercido el cargo"));
+        Gore aux = new Gore(cant,reg,nom, par, vot);
+        car.agregarGore(aux);
+
+        JOptionPane.showMessageDialog(null,"El nuevo Gore se ha agregado correctamente");
     }
+
+    @Override
+    public void cantidadDeAnos(){
+        JOptionPane.showMessageDialog(null,"Un Gore esta en el poder durante 2 años , y puede ser reelecto las veces que sea");
+    }
+    @Override
+    public void poder(){
+        JOptionPane.showMessageDialog(null,"Un Gore tiene poder en una Region");
+    }
+    
 }

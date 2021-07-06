@@ -5,62 +5,69 @@
  */
 package candidatura;
 
+import static candidatura.Candidatura.car;
 import javax.swing.JOptionPane;
 /**
  *
- * @author Bastián
+ * @author Joel
  */
 
-public class Presidente {
-    private String nombre; 
-    private String partido;
-    private int votos;
-    private int cantidad = 0;
+public class Presidente extends Persona{
 
-    public Presidente(String nombre, String partido, int votos) {
-        this.nombre = nombre;
-        this.partido = partido;
-        this.votos = votos;
+    
+    private int cantPresent; // cantidad de presentaciones como candidato a la presidencia
+    private int cantCarg; // Cantidad de haber ejercido el cargo de presidente
+    
+    public Presidente(int cantPresent, int cantCarg, String nombre, String partido, int votos) {
+        super(nombre, partido, votos);
+        this.cantPresent = cantPresent;
+        this.cantCarg = cantCarg;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Presidente() {
+        super(null, null, 0);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public int getCantPresent() {
+        return cantPresent;
     }
 
-    public String getPartido() {
-        return partido;
+    public void setCantPresent(int cantPresent) {
+        this.cantPresent = cantPresent;
     }
 
-    public void setPartido(String partido) {
-        this.partido = partido;
+    public int getCantCarg() {
+        return cantCarg;
     }
 
-    public int getVotos() {
-        return votos;
-    }
-
-    public void setVotos(int votos) {
-        this.votos = votos;
+    public void setCantCarg(int cantCarg) {
+        this.cantCarg = cantCarg;
     }
     
-    public void aumentarVotos(int aux){
-        votos = votos + aux;
-    }
-    public void aumentarVotos(){
-        System.out.println("votos correctamente aumentados");
-    }
     
-    public static void agregarPres(Cargos car){
-    String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
-    String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
-    int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
-    Presidente aux = new Presidente(nom, par, vot);
-    car.agregarPres(aux);
     
-    JOptionPane.showMessageDialog(null,"El nuevo Presidente se ha agregado correctamente");
+
+    
+
+    
+    @Override
+    public void agregar() {
+        String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
+        String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
+        int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
+        int present=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en las que se ha presentado el Candidato"));
+        int cand=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en que el Candidato ha ejercido el cargo"));
+        Presidente aux = new Presidente(present,cand,nom, par, vot);
+        car.agregarPres(aux);
+
+        JOptionPane.showMessageDialog(null,"El nuevo Presidente se ha agregado correctamente");
+    }
+    @Override
+    public void cantidadDeAnos(){
+        JOptionPane.showMessageDialog(null,"Un Presidente esta en el poder durante 4 años , y no puede ser reelecto al siguiente año");
+    }
+    @Override
+    public void poder(){
+        JOptionPane.showMessageDialog(null,"Un Presidente tiene poder en un Pais");
     }
 }

@@ -5,60 +5,69 @@
  */
 package candidatura;
 
+import static candidatura.Candidatura.car;
+import java.util.Objects;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Bastián
+ * @author Joel
  */
-public class Concejal {
-    private String nombre;
-    private String partido;
-    private int votos;
-
-    public Concejal(String nombre, String partido, int votos) {
-        this.nombre = nombre;
-        this.partido = partido;
-        this.votos = votos;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPartido() {
-        return partido;
-    }
-
-    public void setPartido(String partido) {
-        this.partido = partido;
-    }
-
-    public int getVotos() {
-        return votos;
-    }
-
-    public void setVotos(int votos) {
-        this.votos = votos;
+public class Concejal extends Persona{
+    private int cantAnos; //Cantidad de años que ha sido concejal
+    private String comuna;
+    
+    public Concejal(int cantAnos, String comuna, String nombre, String partido, int votos) {
+        super(nombre, partido, votos);
+        this.cantAnos = cantAnos;
+        this.comuna = comuna;
     }
     
-    public void aumentarVotos(int aux){
-        votos = votos + aux;
+
+    public Concejal() {
+        super(null, null, 0);
     }
-    public void aumentarVotos(){
-        System.out.println("votos correctamente aumentados");
+    public int getCantAnos() {
+        return cantAnos;
     }
-    public static void agregarConc(Cargos car){
-    String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
-    String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
-    int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
-    Concejal aux = new Concejal(nom, par, vot);
-    car.agregarConc(aux);
+
+    public void setCantAnos(int cantAnos) {
+        this.cantAnos = cantAnos;
+    }
+
+    public String getComuna() {
+        return comuna;
+    }
+
+    public void setComuna(String comuna) {
+        this.comuna = comuna;
+    }
+
     
-    JOptionPane.showMessageDialog(null,"El nuevo Concejal se ha agregado correctamente");
+    
+   
+
+    @Override
+    public void agregar() {
+        String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
+        String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
+        int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
+        String com=JOptionPane.showInputDialog("Ingrese cantidad de años que ha ejercido el cargo");
+        int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la comuna a la que se presenta"));
+        Concejal aux = new Concejal(cant,com,nom, par, vot);
+        car.agregarConc(aux);
+
+        JOptionPane.showMessageDialog(null,"El nuevo Concejal se ha agregado correctamente");
     }
+
+    @Override
+    public void cantidadDeAnos(){
+        JOptionPane.showMessageDialog(null,"Un Concejal esta en el poder durante 4 años , y  puede ser reelecto");
+    }
+    
+    @Override
+    public void poder(){
+        JOptionPane.showMessageDialog(null,"Un concejal tiene poder en una comuna");
+    }
+    
 }
