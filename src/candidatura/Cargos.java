@@ -14,20 +14,32 @@ import javax.swing.JOptionPane;
  * @author Joel
  */
 public class Cargos {
-    private ArrayList<Persona> presidentes;
-    private ArrayList<Persona> gores;
-    private ArrayList<Persona> concejales;
-    private ArrayList<Persona> alcaldes;
-    private HashMap candidatos;
+    //private ArrayList<Presidente> presidentes;
+    //private ArrayList<Gore> gores;
+    //private ArrayList<Concejal> concejales;
+    //private ArrayList<Alcalde> alcaldes;
+    private ColeccionPresidente coleccionDePresidentes;
+    private ColeccionGore coleccionDeGores;
+    private ColeccionConcejal coleccionDeConcejales;
+    private ColeccionAlcaldes coleccionDeAlcaldes;
+    
+    private HashMap<String,Persona> candidatos;
+    public CandidatosImprimible impresion;
     
     public Cargos() {
-        presidentes = new ArrayList<>();
+        
+        this.coleccionDePresidentes = new ColeccionPresidente();
+        this.coleccionDeGores = new ColeccionGore();
+        this.coleccionDeConcejales = new ColeccionConcejal();
+        this.coleccionDeAlcaldes = new ColeccionAlcaldes();
+        
+        /*presidentes = new ArrayList<>();
         gores = new ArrayList<>();
         concejales = new ArrayList<>();
         alcaldes = new ArrayList<>();
-        candidatos = new HashMap();
+        candidatos = new HashMap();*/
     }
-
+    /*
     public ArrayList<Persona> getPresidentes() {
         return presidentes;
     }
@@ -66,30 +78,31 @@ public class Cargos {
 
     public void setCandidatos(HashMap candidatos) {
         this.candidatos = candidatos;
-    }
+    }*/
     
-    public boolean agregarPres(Presidente presidente){
+    public boolean agregar(Presidente presidente){
         String aux = presidente.getNombre();
         candidatos.put(aux,presidente);
-        return presidentes.add(presidente);
+        
+        return coleccionDePresidentes.agregarPresidente(presidente);//presidentes.add(presidente);
     }
     
-    public boolean agregarGore(Gore gore){
+    public boolean agregar(Gore gore){
         String aux = gore.getNombre();
         candidatos.put(aux,gore);
-        return gores.add(gore);
+        return coleccionDeGores.agregarGore(gore);//gores.add(gore);
     }
     
-    public boolean agregarConc(Concejal concejal){
+    public boolean agregar(Concejal concejal){
         String aux = concejal.getNombre();
         candidatos.put(aux,concejal);
-        return concejales.add(concejal);
+        return this.coleccionDeConcejales.agregarConcejal(concejal);//concejales.add(concejal);
     }
     
-    public boolean agregarAlca(Alcalde alcalde){
+    public boolean agregar(Alcalde alcalde){
         String aux = alcalde.getNombre();
         candidatos.put(aux,alcalde);
-        return alcaldes.add(alcalde);
+        return this.coleccionDeAlcaldes.agregarAlcalde(alcalde);//alcaldes.add(alcalde);
     }
     
     public void mostrarP()throws IOException{ 
@@ -131,8 +144,8 @@ public class Cargos {
     public void mostrarPresVotos(Cargos car){
         Presidente aux;
         Presidente aux2 = new Presidente();
-        for(int i = 0 ; i < car.presidentes.size() ; i++){
-            aux = (Presidente) car.presidentes.get(i);
+        for(int i = 0 ; i < car.coleccionDePresidentes.SizeArray(); i++){
+            aux = (Presidente) car.coleccionDePresidentes.obtenerPresidenteIndice(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -143,8 +156,8 @@ public class Cargos {
     public void mostrarGoreVotos(Cargos car){
         Gore aux;
         Gore aux2 = new Gore();
-        for(int i = 0 ; i < car.gores.size() ; i++){
-            aux = (Gore) car.gores.get(i);
+        for(int i = 0 ; i < car.coleccionDeGores.SizeArray(); i++){
+            aux = (Gore) car.coleccionDeGores.obtenerGoreIndice(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -155,8 +168,8 @@ public class Cargos {
     public void mostrarConceVotos(Cargos car){
         Concejal aux;
         Concejal aux2 = new Concejal();
-        for(int i = 0 ; i < car.concejales.size() ; i++){
-            aux = (Concejal) car.concejales.get(i);
+        for(int i = 0 ; i < car.coleccionDeConcejales.SizeArray() ; i++){
+            aux = (Concejal) car.coleccionDeConcejales.obtenerConcejalIndice(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -167,8 +180,8 @@ public class Cargos {
     public void mostrarAlcaVotos(Cargos car){
         Alcalde aux;
         Alcalde aux2 = new Alcalde();
-        for(int i = 0 ; i < car.alcaldes.size() ; i++){
-            aux = (Alcalde) car.alcaldes.get(i);
+        for(int i = 0 ; i < car.coleccionDeAlcaldes.SizeArray() ; i++){
+            aux = (Alcalde) car.coleccionDeAlcaldes.obtenerAlcaldeIndice(i);
             if(aux.getVotos() > aux2.getVotos()){
                 aux2 = aux;
             }
@@ -203,8 +216,8 @@ public class Cargos {
     public void mostrarListaP(Cargos car){
         String mostrar = "";
         Presidente aux;
-        for(int i = 0 ; i < car.presidentes.size() ; i++){
-            aux = (Presidente) car.presidentes.get(i);
+        for(int i = 0 ; i < car.coleccionDePresidentes.SizeArray() ; i++){
+            aux = (Presidente) car.coleccionDePresidentes.obtenerPresidenteIndice(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -218,8 +231,8 @@ public class Cargos {
     public void mostrarListaG(Cargos car){
         String mostrar = "";
         Gore aux;
-        for(int i = 0 ; i < car.gores.size() ; i++){
-            aux = (Gore) car.gores.get(i);
+        for(int i = 0 ; i < car.coleccionDeGores.SizeArray(); i++){
+            aux = (Gore) car.coleccionDeGores.obtenerGoreIndice(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -233,8 +246,8 @@ public class Cargos {
     public void mostrarListaC(Cargos car){
         String mostrar = "";
         Concejal aux;
-        for(int i = 0 ; i < car.concejales.size() ; i++){
-            aux = (Concejal) car.concejales.get(i);
+        for(int i = 0 ; i < car.coleccionDeConcejales.SizeArray(); i++){
+            aux = (Concejal) car.coleccionDeConcejales.obtenerConcejalIndice(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -248,8 +261,8 @@ public class Cargos {
     public void mostrarListaA(Cargos car){
         String mostrar = "";
         Alcalde aux;
-        for(int i = 0 ; i < car.alcaldes.size() ; i++){
-            aux = (Alcalde) car.alcaldes.get(i);
+        for(int i = 0 ; i < car.coleccionDeAlcaldes.SizeArray(); i++){
+            aux = (Alcalde) car.coleccionDeAlcaldes.obtenerAlcaldeIndice(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -264,8 +277,8 @@ public class Cargos {
     String mostrar = "";
     
         Presidente aux;
-        for(int i = 0 ; i < car.presidentes.size() ; i++){
-            aux = (Presidente) car.presidentes.get(i);
+        for(int i = 0 ; i < car.coleccionDePresidentes.SizeArray(); i++){
+            aux = (Presidente) car.coleccionDePresidentes.obtenerPresidenteIndice(i);
             mostrar = mostrar + aux.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux.getPartido();
@@ -275,8 +288,8 @@ public class Cargos {
         }
         
         Gore aux2;
-        for(int i = 0 ; i < car.gores.size() ; i++){
-            aux2 = (Gore) car.gores.get(i);
+        for(int i = 0 ; i < car.coleccionDeGores.SizeArray(); i++){
+            aux2 = (Gore) car.coleccionDeGores.obtenerGoreIndice(i);
             mostrar = mostrar + aux2.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux2.getPartido();
@@ -286,8 +299,8 @@ public class Cargos {
         }
         
          Concejal aux3;
-        for(int i = 0 ; i < car.concejales.size() ; i++){
-            aux3 = (Concejal) car.concejales.get(i);
+        for(int i = 0 ; i < car.coleccionDeConcejales.SizeArray(); i++){
+            aux3 = (Concejal) car.coleccionDeConcejales.obtenerConcejalIndice(i);
             mostrar = mostrar + aux3.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux3.getPartido();
@@ -297,8 +310,8 @@ public class Cargos {
         }
         
         Alcalde aux4;
-        for(int i = 0 ; i < car.alcaldes.size() ; i++){
-            aux4 = (Alcalde) car.alcaldes.get(i);
+        for(int i = 0 ; i < car.coleccionDeAlcaldes.SizeArray(); i++){
+            aux4 = (Alcalde) car.coleccionDeAlcaldes.obtenerAlcaldeIndice(i);
             mostrar = mostrar + aux4.getNombre();
             mostrar += " ";
             mostrar = mostrar + aux4.getPartido();
@@ -308,6 +321,55 @@ public class Cargos {
         }
         
         JOptionPane.showMessageDialog(null, mostrar);        
+    }
+    
+    public Alcalde[] obtenerArrayAlcaldes(){
+        int i;
+        Alcalde[] alcaldes = new Alcalde[this.coleccionDeAlcaldes.SizeArray()];
+        for(i = 0; i < this.coleccionDeAlcaldes.SizeArray(); i++){
+            alcaldes[i] = this.coleccionDeAlcaldes.obtenerAlcaldeIndice(i);
+        }
+        
+        return alcaldes;  
+    }
+    
+    public Presidente[] obtenerArrayPresidente(){
+        int i;
+        Presidente[] presidentesGlobal = new Presidente[this.coleccionDePresidentes.SizeArray()];
+        for(i = 0; i < this.coleccionDePresidentes.SizeArray(); i++){
+            presidentesGlobal[i] = this.coleccionDePresidentes.obtenerPresidenteIndice(i);
+        }
+        
+        return presidentesGlobal;  
+    }
+    
+    public Gore[] obtenerArrayGore(){
+        int i;
+        Gore[] goresGlobal = new Gore[this.coleccionDeGores.SizeArray()];
+        for(i = 0; i < this.coleccionDeGores.SizeArray(); i++){
+            goresGlobal[i] = this.coleccionDeGores.obtenerGoreIndice(i);
+        }
+        
+        return goresGlobal;  
+    }
+ 
+    public Concejal[] obtenerArrayConcejal(){
+        int i;
+        Concejal[] consejalesGlobal = new Concejal[this.coleccionDeConcejales.SizeArray()];
+        for(i = 0; i < this.coleccionDeConcejales.SizeArray(); i++){
+            consejalesGlobal[i] = this.coleccionDeConcejales.obtenerConcejalIndice(i);
+        }
+        
+        return consejalesGlobal;  
+    }
+    
+    
+    public void setFormatoDeSalida(CandidatosImprimible tipo){
+        this.impresion = tipo;
+    }
+    
+    public void imprimir(){
+        this.impresion.imprimir(this);
     }
 }
 

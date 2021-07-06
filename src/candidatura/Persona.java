@@ -43,6 +43,8 @@ public abstract class Persona implements Informacion{
     public void setVotos(int votos) {
         this.votos = votos;
     }
+    
+
 
     /**
      *

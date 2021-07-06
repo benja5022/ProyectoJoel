@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  *
  * @author Vicente
- */
+ 
 public class PersonaTest {
     
     public PersonaTest() {
@@ -37,9 +37,7 @@ public class PersonaTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getNombre method, of class Persona.
-     */
+
     @Test
     public void testGetNombre() {
         System.out.println("getNombre");
@@ -51,9 +49,6 @@ public class PersonaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setNombre method, of class Persona.
-     */
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
@@ -64,9 +59,7 @@ public class PersonaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getPartido method, of class Persona.
-     */
+
     @Test
     public void testGetPartido() {
         System.out.println("getPartido");
@@ -78,9 +71,6 @@ public class PersonaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setPartido method, of class Persona.
-     */
     @Test
     public void testSetPartido() {
         System.out.println("setPartido");
@@ -91,9 +81,7 @@ public class PersonaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getVotos method, of class Persona.
-     */
+
     @Test
     public void testGetVotos() {
         System.out.println("getVotos");
@@ -105,9 +93,7 @@ public class PersonaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setVotos method, of class Persona.
-     */
+
     @Test
     public void testSetVotos() {
         System.out.println("setVotos");
@@ -118,9 +104,7 @@ public class PersonaTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of agregar method, of class Persona.
-     */
+
     @Test
     public void testAgregar() {
         System.out.println("agregar");
@@ -141,3 +125,4 @@ public class PersonaTest {
     }
     
 }
+*/

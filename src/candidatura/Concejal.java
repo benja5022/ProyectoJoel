@@ -55,7 +55,7 @@ public class Concejal extends Persona{
         String com=JOptionPane.showInputDialog("Ingrese cantidad de años que ha ejercido el cargo");
         int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la comuna a la que se presenta"));
         Concejal aux = new Concejal(cant,com,nom, par, vot);
-        car.agregarConc(aux);
+        car.agregar(aux);
 
         JOptionPane.showMessageDialog(null,"El nuevo Concejal se ha agregado correctamente");
     }
