@@ -53,7 +53,7 @@ public class Alcalde extends Persona{
         String com=JOptionPane.showInputDialog("Ingrese cantidad de años que ha ejercido el cargo");
         int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la comuna a la que se presenta"));
         Alcalde aux = new Alcalde(cant,com,nom, par, vot);
-        car.agregarAlca(aux);
+        car.agregar(aux);
 
         JOptionPane.showMessageDialog(null,"El nuevo Alcalde se ha agregado correctamente");
     }

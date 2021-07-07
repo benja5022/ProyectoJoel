@@ -54,7 +54,7 @@ public class Gore extends Persona{
         String reg=JOptionPane.showInputDialog("Ingrese la region a la que se presenta el Candidato");
         int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en que el Candidato ha ejercido el cargo"));
         Gore aux = new Gore(cant,reg,nom, par, vot);
-        car.agregarGore(aux);
+        car.agregar(aux);
 
         JOptionPane.showMessageDialog(null,"El nuevo Gore se ha agregado correctamente");
     }

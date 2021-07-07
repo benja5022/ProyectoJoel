@@ -58,7 +58,7 @@ public class Presidente extends Persona{
         int present=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en las que se ha presentado el Candidato"));
         int cand=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en que el Candidato ha ejercido el cargo"));
         Presidente aux = new Presidente(present,cand,nom, par, vot);
-        car.agregarPres(aux);
+        car.agregar(aux);
 
         JOptionPane.showMessageDialog(null,"El nuevo Presidente se ha agregado correctamente");
     }

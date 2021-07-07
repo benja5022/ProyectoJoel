@@ -28,17 +28,29 @@ public class Candidatura {
          Persona djMendez = new Alcalde(4,"Concon","Dj Mendez","Derecha",1);
         leerDatos();
         
-        car.agregarPres((Presidente) lucasCruz);
-        car.agregarPres((Presidente) abrahamLincoln);
-        car.agregarGore((Gore) melGibson);
-        car.agregarGore((Gore) troyMclure);
-        car.agregarConc((Concejal) johnBobi);
-        car.agregarConc((Concejal) cocoLegrand);
-        car.agregarAlca((Alcalde) diegoPalta);
-        car.agregarAlca((Alcalde) djMendez);
+        car.agregar((Presidente) lucasCruz);
+        car.agregar((Presidente) abrahamLincoln);
+        car.agregar((Gore) melGibson);
+        car.agregar((Gore) troyMclure);
+        car.agregar((Concejal) johnBobi);
+        car.agregar((Concejal) cocoLegrand);
+        car.agregar((Alcalde) diegoPalta);
+        car.agregar((Alcalde) djMendez);
         
+        car.setFormatoDeSalida(new FormatoPresidente());
+        car.imprimir();
+        System.out.println('\n');
+        car.setFormatoDeSalida(new FormatoConsejal());
+        car.imprimir();
+        System.out.println('\n');
+        car.setFormatoDeSalida(new FormatoGore());
+        car.imprimir();
+        System.out.println('\n');
+        car.setFormatoDeSalida(new FormatoAlcaldes());
+        car.imprimir();
+        System.out.println('\n');
         
-        int opcion;
+        /*int opcion;
         try{
             do{
             opcion=Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -124,7 +136,7 @@ public class Candidatura {
                         default:JOptionPane.showMessageDialog(null,"ELIJA UNA OPCION VALIDA\n","ERROR OPCION",JOptionPane.WARNING_MESSAGE);
             } 
             }while(opcion!=15);
-        }catch(NullPointerException e){}
+        }catch(NullPointerException e){}*/
     }
     
     public static void leerDatos() throws IOException{
@@ -151,7 +163,7 @@ public class Candidatura {
                     int voto=Integer.parseInt(arrOfStr[3]);
                     Persona aux;
                     aux = new Presidente(cant,pres,arrOfStr[1],arrOfStr[2],voto);
-                    car.agregarPres((Presidente) aux);
+                    car.agregar((Presidente) aux);
                     
                 }
                 if(arrOfStr[0].equals("Gore")){
@@ -161,7 +173,7 @@ public class Candidatura {
                     int voto=Integer.parseInt(arrOfStr[3]);
                     Persona aux;
                     aux = new Gore(cant,arrOfStr[5],arrOfStr[1],arrOfStr[2],voto);
-                    car.agregarGore((Gore) aux);
+                    car.agregar((Gore) aux);
                     
                 }
                 if(arrOfStr[0].equals("Concejal")){
@@ -171,7 +183,7 @@ public class Candidatura {
                     int voto=Integer.parseInt(arrOfStr[3]);
                     Persona aux;
                     aux = new Concejal(cant,arrOfStr[5],arrOfStr[1],arrOfStr[2],voto);
-                    car.agregarConc((Concejal) aux);
+                    car.agregar((Concejal) aux);
                     
                 }
                 if(arrOfStr[0].equals("Alcalde")){
@@ -181,7 +193,7 @@ public class Candidatura {
                     int voto=Integer.parseInt(arrOfStr[3]);
                     Persona aux;
                     aux = new Alcalde(cant,arrOfStr[5],arrOfStr[1],arrOfStr[2],voto);
-                    car.agregarAlca((Alcalde) aux);
+                    car.agregar((Alcalde) aux);
                     
                 }
             }
