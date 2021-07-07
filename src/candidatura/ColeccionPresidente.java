@@ -21,13 +21,32 @@ public class ColeccionPresidente {
         this.presidentes = new ArrayList();
     }
     
-    public Presidente obtenerPresidenteIndice(int index){
-        return this.presidentes.get(index);
-        
+    public Presidente obtenerPresidente(int index){
+        return this.presidentes.get(index);   
+    }
+    
+    public Persona obtenerPresidente(String nombre){
+
+        for (int i = 0; i < presidentes.size(); i++) {
+            if (nombre.equals(presidentes.get(i).getNombre())) {
+                return presidentes.get(i);
+            }
+        }
+        return null;           
     }
     
     public boolean agregarPresidente(Presidente presidenteNuevo){
         return this.presidentes.add(presidenteNuevo);
+    }
+    
+    public boolean eliminarPresidente(Presidente nombre){
+        for (int i = 0; i < presidentes.size(); i++) {
+            if (nombre.equals(presidentes.get(i).getNombre())) {
+                this.presidentes.remove(i);
+                return true;
+            }
+        }
+        return false;
     }
     
     public int SizeArray(){

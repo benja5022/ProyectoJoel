@@ -19,8 +19,18 @@ public class ColeccionConcejal {
         this.concejales = new ArrayList();
     }
 
-    public Concejal obtenerConcejalIndice(int index) {
+    public Concejal obtenerConcejal(int index) {
         return this.concejales.get(index);
+    }
+
+    public Persona obtenerConcejal(String nombre){
+
+        for (int i = 0; i < concejales.size(); i++) {
+            if (nombre.equals(concejales.get(i).getNombre())) {
+                return concejales.get(i);
+            }
+        }
+        return null;           
     }
     
     public boolean agregarConcejal(Concejal consejalNuevo){
