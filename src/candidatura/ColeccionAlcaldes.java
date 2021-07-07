@@ -14,17 +14,27 @@ import java.util.ArrayList;
 public class ColeccionAlcaldes {
 
     private ArrayList<Alcalde> alcaldes;
-    
-    public ColeccionAlcaldes(){
+
+    public ColeccionAlcaldes() {
         this.alcaldes = new ArrayList();
     }
 
-    public Alcalde obtenerAlcaldeIndice(int index) {
+    public Alcalde obtenerAlcalde(int index) {
         return this.alcaldes.get(index);
 
     }
-    
-    public boolean agregarAlcalde(Alcalde alcaldeNuevo){
+
+    public Persona obtenerAlcalde(String nombre) {
+
+        for (int i = 0; i < alcaldes.size(); i++) {
+            if (nombre.equals(alcaldes.get(i).getNombre())) {
+                return alcaldes.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean agregarAlcalde(Alcalde alcaldeNuevo) {
         return this.alcaldes.add(alcaldeNuevo);
     }
 
