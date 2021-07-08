@@ -37,7 +37,17 @@ public class ColeccionAlcaldes {
     public boolean agregarAlcalde(Alcalde alcaldeNuevo) {
         return this.alcaldes.add(alcaldeNuevo);
     }
-
+    
+     public boolean eliminarAlcalde(Alcalde nombre){
+        for (int i = 0; i < alcaldes.size(); i++) {
+            if (nombre.equals(alcaldes.get(i).getNombre())) {
+                this.alcaldes.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+     
     public int SizeArray() {
         return this.alcaldes.size();
     }

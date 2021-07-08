@@ -37,6 +37,17 @@ public class ColeccionGore {
     public boolean agregarGore(Gore goreNuevo) {
         return this.gores.add(goreNuevo);
     }
+   
+    
+    public boolean eliminarGore(Gore nombre){
+        for (int i = 0; i < gores.size(); i++) {
+            if (nombre.equals(gores.get(i).getNombre())) {
+                this.gores.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int SizeArray() {
         return this.gores.size();

@@ -36,6 +36,16 @@ public class ColeccionConcejal {
     public boolean agregarConcejal(Concejal consejalNuevo){
         return this.concejales.add(consejalNuevo);
     }
+    
+    public boolean eliminarConcejal(Concejal nombre){
+        for (int i = 0; i < concejales.size(); i++) {
+            if (nombre.equals(concejales.get(i).getNombre())) {
+                this.concejales.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 
     public int SizeArray() {
         return this.concejales.size();
