@@ -7,10 +7,6 @@ package candidatura;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Benjamín
- */
 public class ColeccionCandidatosPorPartido {
 
     ArrayList<Persona> candidatos;

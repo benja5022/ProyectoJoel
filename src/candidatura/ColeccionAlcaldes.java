@@ -7,10 +7,6 @@ package candidatura;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Benjamín
- */
 public class ColeccionAlcaldes {
 
     private ArrayList<Alcalde> alcaldes;
@@ -24,7 +20,7 @@ public class ColeccionAlcaldes {
 
     }
 
-    public Persona obtenerAlcalde(String nombre) {
+    public Alcalde obtenerAlcalde(String nombre) {
 
         for (int i = 0; i < alcaldes.size(); i++) {
             if (nombre.equals(alcaldes.get(i).getNombre())) {
@@ -38,7 +34,7 @@ public class ColeccionAlcaldes {
         return this.alcaldes.add(alcaldeNuevo);
     }
     
-     public boolean eliminarAlcalde(Alcalde nombre){
+     public boolean eliminarAlcalde(String nombre){
         for (int i = 0; i < alcaldes.size(); i++) {
             if (nombre.equals(alcaldes.get(i).getNombre())) {
                 this.alcaldes.remove(i);

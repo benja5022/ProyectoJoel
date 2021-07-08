@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package candidatura;
+
 import java.io.*;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Joel
@@ -18,14 +20,14 @@ public class Candidatura {
     public static Cargos car = new Cargos();
     
     public static void main(String[] args) throws IOException {
-         Persona lucasCruz = new Presidente(1,1,"Lucas Cruz","Derecha",2300);
-         Persona abrahamLincoln = new Presidente(1,1,"Abraham Lincoln","Centro",700);
-         Persona melGibson = new Gore(1,"Valparaiso","Mel Gibson","Derecha",1000);
-         Persona troyMclure = new Gore(1,"Metropolitana","Troy Mclure","Centro",2000);
-         Persona johnBobi = new Concejal(4,"Vina del Mar","John Bobi","Izquierda",2500);
-         Persona cocoLegrand = new Concejal(8,"Quillota","Coco Legrand","Derecha",500);
-         Persona diegoPalta = new Alcalde(8,"Villa Alemana","Diego Palta","Izquierda",2999);
-         Persona djMendez = new Alcalde(4,"Concon","Dj Mendez","Derecha",1);
+        Persona lucasCruz = new Presidente(1, 1, "Lucas Cruz", "Derecha", 2300);
+        Persona abrahamLincoln = new Presidente(1, 1, "Abraham Lincoln", "Centro", 700);
+        Persona melGibson = new Gore(1, "Valparaiso", "Mel Gibson", "Derecha", 1000);
+        Persona troyMclure = new Gore(1, "Metropolitana", "Troy Mclure", "Centro", 2000);
+        Persona johnBobi = new Concejal(4, "Vina del Mar", "John Bobi", "Izquierda", 2500);
+        Persona cocoLegrand = new Concejal(8, "Quillota", "Coco Legrand", "Derecha", 500);
+        Persona diegoPalta = new Alcalde(8, "Villa Alemana", "Diego Palta", "Izquierda", 2999);
+        Persona djMendez = new Alcalde(4, "Concon", "Dj Mendez", "Derecha", 1);
         leerDatos();
         
         car.agregar((Presidente) lucasCruz);
@@ -50,6 +52,8 @@ public class Candidatura {
         car.imprimir();
         System.out.println('\n');
         
+        car.setFormatoDeSalida(new FormatoReporteGeneral());
+        car.imprimir();
         /*int opcion;
         try{
             do{
@@ -139,68 +143,65 @@ public class Candidatura {
         }catch(NullPointerException e){}*/
     }
     
-    public static void leerDatos() throws IOException{
+    public static void leerDatos() throws IOException {
         String salidaArchivo = "Candidatos.csv";
-              
+        
         String cadena;
         
         try (FileReader f = new FileReader(salidaArchivo)) {
             BufferedReader b = new BufferedReader(f);
-            int cont=1;
-            while((cadena = b.readLine())!=null) {
+            int cont = 1;
+            while ((cadena = b.readLine()) != null) {
                 String[] arrOfStr = cadena.split(",");
-                if(cont==1){
+                if (cont == 1) {
                     String substring = arrOfStr[0].substring(1);
-                    arrOfStr[0]=substring;
+                    arrOfStr[0] = substring;
                     cont++;
                 }
                 
-                
-                if(arrOfStr[0].equals("Presidente")){
+                if (arrOfStr[0].equals("Presidente")) {
                     
-                    int cant=Integer.parseInt(arrOfStr[4]);
-                    int pres=Integer.parseInt(arrOfStr[5]);
-                    int voto=Integer.parseInt(arrOfStr[3]);
+                    int cant = Integer.parseInt(arrOfStr[4]);
+                    int pres = Integer.parseInt(arrOfStr[5]);
+                    int voto = Integer.parseInt(arrOfStr[3]);
                     Persona aux;
-                    aux = new Presidente(cant,pres,arrOfStr[1],arrOfStr[2],voto);
+                    aux = new Presidente(cant, pres, arrOfStr[1], arrOfStr[2], voto);
                     car.agregar((Presidente) aux);
                     
                 }
-                if(arrOfStr[0].equals("Gore")){
+                if (arrOfStr[0].equals("Gore")) {
                     
-                    int cant=Integer.parseInt(arrOfStr[4]);
+                    int cant = Integer.parseInt(arrOfStr[4]);
                     //int pres=Integer.parseInt(arrOfStr[5]);
-                    int voto=Integer.parseInt(arrOfStr[3]);
+                    int voto = Integer.parseInt(arrOfStr[3]);
                     Persona aux;
-                    aux = new Gore(cant,arrOfStr[5],arrOfStr[1],arrOfStr[2],voto);
+                    aux = new Gore(cant, arrOfStr[5], arrOfStr[1], arrOfStr[2], voto);
                     car.agregar((Gore) aux);
                     
                 }
-                if(arrOfStr[0].equals("Concejal")){
+                if (arrOfStr[0].equals("Concejal")) {
                     
-                    int cant=Integer.parseInt(arrOfStr[4]);
+                    int cant = Integer.parseInt(arrOfStr[4]);
                     //int pres=Integer.parseInt(arrOfStr[5]);
-                    int voto=Integer.parseInt(arrOfStr[3]);
+                    int voto = Integer.parseInt(arrOfStr[3]);
                     Persona aux;
-                    aux = new Concejal(cant,arrOfStr[5],arrOfStr[1],arrOfStr[2],voto);
+                    aux = new Concejal(cant, arrOfStr[5], arrOfStr[1], arrOfStr[2], voto);
                     car.agregar((Concejal) aux);
                     
                 }
-                if(arrOfStr[0].equals("Alcalde")){
+                if (arrOfStr[0].equals("Alcalde")) {
                     
-                    int cant=Integer.parseInt(arrOfStr[4]);
+                    int cant = Integer.parseInt(arrOfStr[4]);
                     //int pres=Integer.parseInt(arrOfStr[5]);
-                    int voto=Integer.parseInt(arrOfStr[3]);
+                    int voto = Integer.parseInt(arrOfStr[3]);
                     Persona aux;
-                    aux = new Alcalde(cant,arrOfStr[5],arrOfStr[1],arrOfStr[2],voto);
+                    aux = new Alcalde(cant, arrOfStr[5], arrOfStr[1], arrOfStr[2], voto);
                     car.agregar((Alcalde) aux);
                     
                 }
             }
-        }catch(NullPointerException e){}
+        } catch (NullPointerException e) {
+        }
     }
-        
-}
-        
-        
     
+}

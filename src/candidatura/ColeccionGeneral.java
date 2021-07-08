@@ -8,10 +8,6 @@ package candidatura;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- *
- * @author Benjamín
- */
 public class ColeccionGeneral {
 
     HashMap<String, ColeccionCandidatosPorPartido> coleccionGeneral;
@@ -47,9 +43,7 @@ public class ColeccionGeneral {
 
             if (this.coleccionGeneral.containsKey(candidato.getPartido())) {
                 this.coleccionGeneral.get(candidato.getPartido()).agregarCandidato(candidato);
-            } 
-            else
-            {
+            } else {
                 agregarPartidoPolitico(candidato.getPartido());
                 this.coleccionGeneral.get(candidato.getPartido()).agregarCandidato(candidato);
             }
