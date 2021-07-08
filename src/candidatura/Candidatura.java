@@ -40,7 +40,7 @@ public class Candidatura {
         car.setFormatoDeSalida(new FormatoPresidente());
         car.imprimir();
         System.out.println('\n');
-        car.setFormatoDeSalida(new FormatoConsejal());
+        car.setFormatoDeSalida(new FormatoConcejal());
         car.imprimir();
         System.out.println('\n');
         car.setFormatoDeSalida(new FormatoGore());

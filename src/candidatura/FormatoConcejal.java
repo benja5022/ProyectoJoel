@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author Benjamín
  */
-public class FormatoConsejal implements CandidatosImprimible {
+public class FormatoConcejal implements CandidatosImprimible {
 
     @Override
     public void imprimir(Cargos cargos) {
