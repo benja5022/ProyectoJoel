@@ -7,10 +7,6 @@ package candidatura;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Benjamín
- */
 public class ColeccionGore {
 
     private ArrayList<Gore> gores;
@@ -24,7 +20,7 @@ public class ColeccionGore {
 
     }
 
-    public Persona obtenerGore(String nombre) {
+    public Gore obtenerGore(String nombre) {
 
         for (int i = 0; i < gores.size(); i++) {
             if (nombre.equals(gores.get(i).getNombre())) {
@@ -39,7 +35,7 @@ public class ColeccionGore {
     }
    
     
-    public boolean eliminarGore(Gore nombre){
+    public boolean eliminarGore(String nombre){
         for (int i = 0; i < gores.size(); i++) {
             if (nombre.equals(gores.get(i).getNombre())) {
                 this.gores.remove(i);

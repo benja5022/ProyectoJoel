@@ -11,10 +11,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Benjamín
- */
 public class FormatoAlcaldes implements CandidatosImprimible {
 
     @Override

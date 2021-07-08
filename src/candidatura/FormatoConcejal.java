@@ -11,10 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Benjamín
- */
+
 public class FormatoConcejal implements CandidatosImprimible {
 
     @Override
@@ -35,15 +32,7 @@ public class FormatoConcejal implements CandidatosImprimible {
         } catch (IOException ex) {
             Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*Concejal current;
-        Concejal[] coleccionConcejales = cargos.obtenerArrayConcejal();
-        System.out.println("Candidatos a ser Concejal:\n");
-        for (int i = 0; i < coleccionConcejales.length; i++) {
-            current = coleccionConcejales[i];
-            System.out.println("Nombre Candidato: " + current.getNombre()
-                    + '\n' + "Comuna: " + current.getComuna() + '\n' + "Partido Político: " + current.getPartido()
-                    + '\n' + "Edad: " + current.getCantAnos());
-        }*/
+
     }
 
 }

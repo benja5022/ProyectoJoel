@@ -5,10 +5,6 @@
  */
 package candidatura;
 
-/**
- *
- * @author Benjamín
- */
 public interface CandidatosImprimible {
 
     public void imprimir(Cargos cargos);

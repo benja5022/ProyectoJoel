@@ -7,10 +7,6 @@ package candidatura;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Benjamín
- */
 public class ColeccionConcejal {
 
     private ArrayList<Concejal> concejales;
@@ -23,7 +19,7 @@ public class ColeccionConcejal {
         return this.concejales.get(index);
     }
 
-    public Persona obtenerConcejal(String nombre){
+    public Concejal obtenerConcejal(String nombre){
 
         for (int i = 0; i < concejales.size(); i++) {
             if (nombre.equals(concejales.get(i).getNombre())) {
@@ -37,7 +33,7 @@ public class ColeccionConcejal {
         return this.concejales.add(consejalNuevo);
     }
     
-    public boolean eliminarConcejal(Concejal nombre){
+    public boolean eliminarConcejal(String nombre){
         for (int i = 0; i < concejales.size(); i++) {
             if (nombre.equals(concejales.get(i).getNombre())) {
                 this.concejales.remove(i);

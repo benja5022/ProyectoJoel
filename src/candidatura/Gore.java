@@ -8,10 +8,6 @@ package candidatura;
 import static candidatura.Candidatura.car;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Joel
- */
 public class Gore extends Persona{
     private int cantCarg;
     private String region;
