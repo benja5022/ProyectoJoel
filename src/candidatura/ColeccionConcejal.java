@@ -35,8 +35,8 @@ public class ColeccionConcejal {
         return null;           
     }
     
-    public boolean agregarConcejal(Concejal consejalNuevo){
-        return this.concejales.add(consejalNuevo);
+    public boolean agregarConcejal(Concejal concejalNuevo){
+        return this.concejales.add(concejalNuevo);
     }
     
     public boolean eliminarConcejal(String nombre){

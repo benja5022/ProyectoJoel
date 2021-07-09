@@ -8,11 +8,8 @@ package candidatura.Modelos;
 import candidatura.CandidatosImprimible;
 import candidatura.ColeccionAlcaldes;
 import candidatura.ColeccionConcejal;
-import candidatura.ColeccionGeneral;
 import candidatura.ColeccionGore;
-import candidatura.ColeccionPartidosPoliticos;
 import candidatura.ColeccionPresidente;
-import candidatura.Modelos.Alcalde;
 import java.io.*;
 import javax.swing.JOptionPane;
 
@@ -27,9 +24,6 @@ public class Cargos {
     private ColeccionGore coleccionDeGores;
     private ColeccionConcejal coleccionDeConcejales;
     private ColeccionAlcaldes coleccionDeAlcaldes;
-    private ColeccionGeneral coleccionTotal;
-
-    private ColeccionPartidosPoliticos partidosPoliticos;
     public CandidatosImprimible impresion;
 
     public Cargos() {
@@ -38,36 +32,21 @@ public class Cargos {
         this.coleccionDeGores = new ColeccionGore();
         this.coleccionDeConcejales = new ColeccionConcejal();
         this.coleccionDeAlcaldes = new ColeccionAlcaldes();
-        this.coleccionTotal = new ColeccionGeneral();
-        this.partidosPoliticos = new ColeccionPartidosPoliticos();
-
     }
-
+    //Metodos sobrecargados (agregar)
     public boolean agregar(Presidente presidente) {
-        String aux = presidente.getNombre();
-        this.coleccionTotal.agregarPersona(presidente);
-        this.partidosPoliticos.agregarPartido(presidente.getPartido());
         return coleccionDePresidentes.agregarPresidente(presidente);//presidentes.add(presidente);
     }
 
     public boolean agregar(Gore gore) {
-        String aux = gore.getNombre();
-        this.partidosPoliticos.agregarPartido(gore.getPartido());
-        this.coleccionTotal.agregarPersona(gore);
         return coleccionDeGores.agregarGore(gore);//gores.add(gore);
     }
 
     public boolean agregar(Concejal concejal) {
-        String aux = concejal.getNombre();
-        this.partidosPoliticos.agregarPartido(concejal.getPartido());
-        this.coleccionTotal.agregarPersona(concejal);
         return this.coleccionDeConcejales.agregarConcejal(concejal);//concejales.add(concejal);
     }
 
     public boolean agregar(Alcalde alcalde) {
-        String aux = alcalde.getNombre();
-        this.partidosPoliticos.agregarPartido(alcalde.getPartido());
-        this.coleccionTotal.agregarPersona(alcalde);
         return this.coleccionDeAlcaldes.agregarAlcalde(alcalde);//alcaldes.add(alcalde);
     }
 

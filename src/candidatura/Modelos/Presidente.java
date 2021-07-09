@@ -5,7 +5,7 @@
  */
 package candidatura.Modelos;
 
-import static candidatura.Candidatura.car;
+import candidatura.ColeccionAnios;
 import javax.swing.JOptionPane;
 /**
  *
@@ -51,15 +51,17 @@ public class Presidente extends Persona{
 
     
     @Override
-    public void agregar() {
+    public void agregar(ColeccionAnios registro) {
+        
+        AnosCandidatura aux1= registro.consulta(registro);
         String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
         String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
         int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
         int present=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en las que se ha presentado el Candidato"));
         int cand=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en que el Candidato ha ejercido el cargo"));
         Presidente aux = new Presidente(present,cand,nom, par, vot);
-        car.agregar(aux);
-
+        aux1.agregar(aux, aux1);
+        
         JOptionPane.showMessageDialog(null,"El nuevo Presidente se ha agregado correctamente");
     }
     @Override

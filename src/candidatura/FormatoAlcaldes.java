@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 public class FormatoAlcaldes implements CandidatosImprimible {
 
     @Override
-    public void imprimir(Cargos cargos) {
+    public void imprimir(Cargos cargos, int num) {
 
         try {
             FileWriter escritor = new FileWriter("Reportes\\Alcaldes.txt", StandardCharsets.UTF_8);

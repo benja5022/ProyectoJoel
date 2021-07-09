@@ -5,8 +5,7 @@
  */
 package candidatura.Modelos;
 
-import candidatura.Modelos.Persona;
-import static candidatura.Candidatura.car;
+import candidatura.ColeccionAnios;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,15 +48,17 @@ public class Gore extends Persona{
     
 
     @Override
-    public void agregar() {
+    public void agregar(ColeccionAnios registro) {
+        
+        AnosCandidatura aux1= registro.consulta(registro);
         String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
         String par=JOptionPane.showInputDialog("Ingrese el partido del Candidato");
         int vot=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de votos del Candidato"));
         String reg=JOptionPane.showInputDialog("Ingrese la region a la que se presenta el Candidato");
         int cant=Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de veces en que el Candidato ha ejercido el cargo"));
         Gore aux = new Gore(cant,reg,nom, par, vot);
-        car.agregar(aux);
-
+        aux1.agregar(aux, aux1);
+ 
         JOptionPane.showMessageDialog(null,"El nuevo Gore se ha agregado correctamente");
     }
 
