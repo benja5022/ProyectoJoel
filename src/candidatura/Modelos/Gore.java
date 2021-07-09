@@ -3,10 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package candidatura;
+package candidatura.Modelos;
 
+import candidatura.Modelos.Persona;
 import static candidatura.Candidatura.car;
 import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Joel
+ */
 
 public class Gore extends Persona{
     private int cantCarg;

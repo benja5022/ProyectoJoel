@@ -7,6 +7,10 @@ package candidatura;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Joel
+ */
 
 public class ColeccionPartidosPoliticos {
     private ArrayList<String> coleccionPartidos;

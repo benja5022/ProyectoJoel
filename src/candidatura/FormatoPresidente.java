@@ -5,12 +5,18 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Presidente;
+import candidatura.Modelos.Cargos;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Joel
+ */
 
 public class FormatoPresidente implements CandidatosImprimible {
 
@@ -26,6 +32,8 @@ public class FormatoPresidente implements CandidatosImprimible {
                 current = coleccionPresidentes[i];
                 escritor.write("Nombre Candidato: " + current.getNombre()
                     + '\n' + "Partido Político: " + current.getPartido()
+                    + '\n' + "Cantidad de veces que se ha postulado al cargo: " + current.getCantPresent()
+                    + '\n' + "Cantidad de veces que ha ejercido el cargo: " + current.getCantCarg()
                     + "\n\n");
             }
             escritor.close();
@@ -33,15 +41,7 @@ public class FormatoPresidente implements CandidatosImprimible {
         } catch (IOException ex) {
             Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*Presidente current;
-        Presidente[] coleccionPresidentes = cargos.obtenerArrayPresidente();
-        System.out.println("Candidatos a la Presidencia:\n");
-        for (int i = 0; i < coleccionPresidentes.length; i++) {
-            current = coleccionPresidentes[i];
-            System.out.println("Nombre Candidato: " + current.getNombre()
-                    + '\n' + "Partido Político: " + current.getPartido()
-                    + '\n');
-        }*/
+        
     }
 
 }

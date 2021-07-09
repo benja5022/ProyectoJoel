@@ -5,6 +5,13 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Cargos;
+/*
+ *
+ * @author Joel
+ */
+
+//Interfaz implementada en 5 clases
 public interface CandidatosImprimible {
 
     public void imprimir(Cargos cargos);

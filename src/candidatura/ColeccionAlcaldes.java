@@ -5,7 +5,13 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Alcalde;
 import java.util.ArrayList;
+
+/**
+ *
+ * @author Joel
+ */
 
 public class ColeccionAlcaldes {
 

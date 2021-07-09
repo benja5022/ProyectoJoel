@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package candidatura;
+package candidatura.Modelos;
 
 import static candidatura.Candidatura.car;
 import java.util.Objects;
@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Joel
  */
+
 public class Concejal extends Persona{
     private int cantAnos; //Cantidad de años que ha sido concejal
     private String comuna;

@@ -5,11 +5,18 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Cargos;
+import candidatura.Modelos.Alcalde;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+/**
+ *
+ * @author Joel
+ */
 
 public class FormatoAlcaldes implements CandidatosImprimible {
 
@@ -24,24 +31,17 @@ public class FormatoAlcaldes implements CandidatosImprimible {
             for (int i = 0; i < coleccionAlcaldes.length; i++) {
                 current = coleccionAlcaldes[i];
                 escritor.write("Nombre Candidato: " + current.getNombre()
-                        + '\n' + "Comuna: " + current.getComuna() + '\n' + "Partido Político: " + current.getPartido()
-                        + '\n' + "Edad: " + current.getCantAnos()+"\n\n");
+                        + '\n' + "Comuna: " + current.getComuna() 
+                        + '\n' + "Partido Político: " + current.getPartido()
+                        + '\n' + "Cantidad de años que ha ejercido el cargo : " + current.getCantAnos()
+                        +"\n\n");
             }
             escritor.close();
 
         } catch (IOException ex) {
             Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        /*Alcalde current;
-        Alcalde[] coleccionAlcaldes = cargos.obtenerArrayAlcaldes();
-        System.out.println("Candidatos a la Alcaldia:\n");
-        for (int i = 0; i < coleccionAlcaldes.length; i++) {
-            current = coleccionAlcaldes[i];
-            System.out.println("Nombre Candidato: " + current.getNombre()
-                    + '\n' + "Comuna: " + current.getComuna() + '\n' + "Partido Político: " + current.getPartido()
-                    + '\n' + "Edad: " + current.getCantAnos());
-        }*/
-    }
+        
+  }
 
 }

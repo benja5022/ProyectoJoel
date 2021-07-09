@@ -9,6 +9,7 @@ package candidatura;
  *
  * @author Joel
  */
+
 public interface Informacion {
     public void cantidadDeAnos();
     public void poder();

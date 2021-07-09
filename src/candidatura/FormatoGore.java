@@ -5,12 +5,18 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Gore;
+import candidatura.Modelos.Cargos;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Joel
+ */
 
 public class FormatoGore implements CandidatosImprimible {
 
@@ -26,22 +32,16 @@ public class FormatoGore implements CandidatosImprimible {
                 current = coleccionGores[i];
                 escritor.write("Nombre Candidato: " + current.getNombre()
                     +'\n' + "Partido Político: " + current.getPartido()
-                    +'\n' + "Región: " + current.getRegion()+"\n\n");
+                    +'\n' + "Región: " + current.getRegion()
+                    +'\n' + "Cantidad de veces que ha postulado al cargo: " + current.getCantCarg()
+                    +"\n\n");
             }
             escritor.close();
 
         } catch (IOException ex) {
             Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*Gore current;
-        Gore[] coleccionGore = cargos.obtenerArrayGore();
-        System.out.println("Candidatos a ser GORE:\n");
-        for (int i = 0; i < coleccionGore.length; i++) {
-            current = coleccionGore[i];
-            System.out.println("Nombre Candidato: " + current.getNombre()
-                    +'\n' + "Partido Político: " + current.getPartido()
-                    + '\n' + "Región: " + current.getRegion());
-        }*/
+
     }
 
 }

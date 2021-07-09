@@ -5,11 +5,18 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Persona;
+import candidatura.Modelos.Cargos;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+/**
+ *
+ * @author Joel
+ */
 
 public class FormatoReporteGeneral implements CandidatosImprimible {
 
