@@ -5,7 +5,13 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Persona;
 import java.util.ArrayList;
+
+/**
+ *
+ * @author Joel
+ */
 
 public class ColeccionCandidatosPorPartido {
 

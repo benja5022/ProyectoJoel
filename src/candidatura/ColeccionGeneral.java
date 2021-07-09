@@ -5,8 +5,14 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Persona;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+/**
+ *
+ * @author Joel
+ */
 
 public class ColeccionGeneral {
 

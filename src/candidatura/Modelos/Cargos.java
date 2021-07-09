@@ -3,8 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package candidatura;
+package candidatura.Modelos;
 
+import candidatura.CandidatosImprimible;
+import candidatura.ColeccionAlcaldes;
+import candidatura.ColeccionConcejal;
+import candidatura.ColeccionGeneral;
+import candidatura.ColeccionGore;
+import candidatura.ColeccionPartidosPoliticos;
+import candidatura.ColeccionPresidente;
+import candidatura.Modelos.Alcalde;
 import java.io.*;
 import javax.swing.JOptionPane;
 
@@ -12,6 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author Joel
  */
+
 public class Cargos {
 
     private ColeccionPresidente coleccionDePresidentes;

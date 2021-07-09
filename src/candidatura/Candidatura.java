@@ -5,6 +5,12 @@
  */
 package candidatura;
 
+import candidatura.Modelos.Gore;
+import candidatura.Modelos.Persona;
+import candidatura.Modelos.Concejal;
+import candidatura.Modelos.Presidente;
+import candidatura.Modelos.Cargos;
+import candidatura.Modelos.Alcalde;
 import java.io.*;
 import javax.swing.JOptionPane;
 
@@ -12,11 +18,13 @@ import javax.swing.JOptionPane;
  *
  * @author Joel
  */
+
 public class Candidatura {
 
     /**
      * @throws java.io.IOException
      */
+    //Arreglo a trabajar de tipo Cargos)
     public static Cargos car = new Cargos();
     
     public static void main(String[] args) throws IOException {
@@ -28,8 +36,10 @@ public class Candidatura {
         Persona cocoLegrand = new Concejal(8, "Quillota", "Coco Legrand", "Derecha", 500);
         Persona diegoPalta = new Alcalde(8, "Villa Alemana", "Diego Palta", "Izquierda", 2999);
         Persona djMendez = new Alcalde(4, "Concon", "Dj Mendez", "Derecha", 1);
+        //Lectura automática de datos desde excel 
         leerDatos();
         
+        //Datos hardcodeados de prueba
         car.agregar((Presidente) lucasCruz);
         car.agregar((Presidente) abrahamLincoln);
         car.agregar((Gore) melGibson);
@@ -54,7 +64,9 @@ public class Candidatura {
         
         car.setFormatoDeSalida(new FormatoReporteGeneral());
         car.imprimir();
-        /*int opcion;
+       
+        //Menu de opciones implementado con JOptionPane
+        int opcion;
         try{
             do{
             opcion=Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -76,36 +88,37 @@ public class Candidatura {
                     "15.- Salir\n"+
                     "INGRESE UNA OPCION [1-14]","MENU PRINCIPAL",JOptionPane.QUESTION_MESSAGE));
             switch (opcion){
-                case 1:car.mostrarListaP(car); break;
-                case 2:car.mostrarListaG(car); break;
-                case 3:car.mostrarListaC(car); break;
-                case 4:car.mostrarListaA(car); break;
-                case 5:car.mostrarPresVotos(car); break;
-                case 6:car.mostrarGoreVotos(car); break;
-                case 7:car.mostrarConceVotos(car); break;
-                case 8:car.mostrarAlcaVotos(car);  break;
-                case 9:car.mostrarTodo(car); break;
-                case 10:{
+                //Las opciones de 1 a X interactúan con el usuario mediante JOption
+                case 1:car.mostrarListaP(car); break; //Imprime lista Presidentes
+                case 2:car.mostrarListaG(car); break; //Imprime lista GORES
+                case 3:car.mostrarListaC(car); break; //Imprime lista Concejales
+                case 4:car.mostrarListaA(car); break; //Imprime lista Alcaldes
+                case 5:car.mostrarPresVotos(car); break; //Muestra al Presidente con mas votos
+                case 6:car.mostrarGoreVotos(car); break; //Muestra al GORE con mas votos
+                case 7:car.mostrarConceVotos(car); break;//Muestra al Concejal con mas votos 
+                case 8:car.mostrarAlcaVotos(car);  break;//Muestra al Alcalde con mas votos 
+                case 9:car.mostrarTodo(car); break; //Imprime toda la info guardada en el programa por JOption
+                case 10:{ //Agrega a 1 Presidente
                     Persona pres = new Presidente();
                     pres.agregar(); 
                     break;            
                 }
-                case 11:{
+                case 11:{ //Agrega a 1 GORE
                     Persona gor = new Gore();
                     gor.agregar(); 
                     break;            
                 }
-                case 12:{
+                case 12:{ //Agrega a 1 Concejal
                     Persona con = new Concejal();
                     con.agregar(); 
                     break;            
                 }
-                case 13:{
+                case 13:{ //Agrega a 1 Alcalde
                     Persona alca = new Alcalde();
                     alca.agregar(); 
                     break;            
                 }
-                case 14:{
+                case 14:{ //Informacion especifica de cada cargo, esta corresponde a la interfaz "Informacion"
                     int op;
                      op=Integer.parseInt(JOptionPane.showInputDialog(null,
                     "Informacion\n"+
@@ -114,35 +127,37 @@ public class Candidatura {
                     "3.-Consejal\n"+
                     "4.-Alcalde\n"+
                     "INGRESE UNA OPCION [1-4]","MENU PRINCIPAL",JOptionPane.QUESTION_MESSAGE));
-                    if(op==1){
+                    if(op==1){ //Info Presidente
                         Persona aux = new Presidente();
                         aux.cantidadDeAnos();
                         aux.poder();
                     }
-                    if(op==2){
+                    if(op==2){ //Info GORE 
                         Persona aux = new Gore();
                         aux.cantidadDeAnos();
                         aux.poder();
                     }
-                    if(op==3){
+                    if(op==3){ //Info Concejal
                         Persona aux = new Concejal();
                         aux.cantidadDeAnos();
                         aux.poder();
                     }
-                    if(op==4){
+                    if(op==4){ //Info Alcalde
                         Persona aux = new Alcalde();
                         aux.cantidadDeAnos();
                         aux.poder();
                     }
                     break;
                 }
+                //Opcion de salida + mensaje
                 case 15:JOptionPane.showMessageDialog(null,"QUE TENGA UN BUEN DIA");System.exit(0);break;
                         default:JOptionPane.showMessageDialog(null,"ELIJA UNA OPCION VALIDA\n","ERROR OPCION",JOptionPane.WARNING_MESSAGE);
             } 
             }while(opcion!=15);
-        }catch(NullPointerException e){}*/
+        }catch(NullPointerException e){}
     }
     
+    //Funcion que importa datos desde un archivo excel
     public static void leerDatos() throws IOException {
         String salidaArchivo = "Candidatos.csv";
         

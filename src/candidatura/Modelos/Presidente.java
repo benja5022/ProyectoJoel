@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package candidatura;
+package candidatura.Modelos;
 
 import static candidatura.Candidatura.car;
 import javax.swing.JOptionPane;

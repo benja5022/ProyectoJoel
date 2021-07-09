@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package candidatura;
+package candidatura.Modelos;
+
+import candidatura.Informacion;
 
 /**
  *
  * @author Joel
  */
+
 public abstract class Persona implements Informacion{
     private String nombre;
     private String partido;
