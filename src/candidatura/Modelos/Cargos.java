@@ -308,20 +308,58 @@ public class Cargos {
         return consejalesGlobal;
     }
 
-    public String[] retornarListadoPartidos() {
+    /*public String[] retornarListadoPartidos() {
         return this.partidosPoliticos.retornarListadoPartidos();
 
     }
 
     public Persona[] retornarConjuntoDeCandidatos(String partidoPolitico) {
         return this.coleccionTotal.retornarConjuntoDeCandidatos(partidoPolitico);
-    }
+    }*/
 
     public void setFormatoDeSalida(CandidatosImprimible tipo) {
         this.impresion = tipo;
     }
 
-    public void imprimir() {
-        this.impresion.imprimir(this);
+    public void imprimir(int anio,int tipo) {
+        switch(tipo){
+            case 0:
+                this.impresion.imprimir(this.obtenerArrayAlcaldes());
+                break;
+            case 1:
+                this.impresion.imprimir(this.obtenerArrayPresidente());
+                break;
+            case 2:
+                this.impresion.imprimir(this.obtenerArrayConcejal());
+                break;
+            case 3:
+                this.impresion.imprimir(this.obtenerArrayGore());
+                break;
+            case 4:
+                Object[] valores = {this.obtenerArrayAlcaldes(),this.obtenerArrayPresidente(),this.obtenerArrayConcejal(),this.obtenerArrayGore()};
+                this.impresion.imprimir(valores,anio);
+                break;
+        }
+    }
+    
+    public void imprimir(int valor){
+        switch(valor){
+            case 0:
+                this.impresion.imprimir(this.obtenerArrayAlcaldes());
+                break;
+            case 1:
+                this.impresion.imprimir(this.obtenerArrayPresidente());
+                break;
+            case 2:
+                this.impresion.imprimir(this.obtenerArrayConcejal());
+                break;
+            case 3:
+                this.impresion.imprimir(this.obtenerArrayGore());
+                break;
+            case 4:
+                Object[] valores = {this.obtenerArrayAlcaldes(),this.obtenerArrayPresidente(),this.obtenerArrayConcejal(),this.obtenerArrayGore()};
+                this.impresion.imprimir(valores);
+                break;
+        }
     }
 }

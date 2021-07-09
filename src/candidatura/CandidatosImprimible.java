@@ -14,6 +14,7 @@ import candidatura.Modelos.Cargos;
 //Interfaz implementada en  clases
 public interface CandidatosImprimible {
     
-    public void imprimir(Cargos cargos, int num);
+    public void imprimir(Object[] array, int num);
+    public void imprimir(Object[] array);
             
 }

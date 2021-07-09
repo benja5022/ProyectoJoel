@@ -17,31 +17,51 @@ import java.util.logging.Logger;
  *
  * @author Joel
  */
-
 public class FormatoGore implements CandidatosImprimible {
 
+
     @Override
-    public void imprimir(Cargos cargos) {
-        
+    public void imprimir(Object[] array, int num) {
         try {
             FileWriter escritor = new FileWriter("Reportes\\Gores.txt", StandardCharsets.UTF_8);
             Gore current;
-            Gore[] coleccionGores = cargos.obtenerArrayGore();
+            Gore[] coleccionGores = (Gore[]) array;
             escritor.write("Candidatos a ser gores:\n");
             for (int i = 0; i < coleccionGores.length; i++) {
                 current = coleccionGores[i];
                 escritor.write("Nombre Candidato: " + current.getNombre()
-                    +'\n' + "Partido Político: " + current.getPartido()
-                    +'\n' + "Región: " + current.getRegion()
-                    +'\n' + "Cantidad de veces que ha postulado al cargo: " + current.getCantCarg()
-                    +"\n\n");
+                        + '\n' + "Partido Político: " + current.getPartido()
+                        + '\n' + "Región: " + current.getRegion()
+                        + '\n' + "Cantidad de veces que ha postulado al cargo: " + current.getCantCarg()
+                        + "\n\n");
             }
             escritor.close();
 
         } catch (IOException ex) {
             Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
 
+    @Override
+    public void imprimir(Object[] array) {
+        try {
+            FileWriter escritor = new FileWriter("Reportes\\Gores.txt", StandardCharsets.UTF_8);
+            Gore current;
+            Gore[] coleccionGores = (Gore[]) array;
+            escritor.write("Candidatos a ser gores:\n");
+            for (int i = 0; i < coleccionGores.length; i++) {
+                current = coleccionGores[i];
+                escritor.write("Nombre Candidato: " + current.getNombre()
+                        + '\n' + "Partido Político: " + current.getPartido()
+                        + '\n' + "Región: " + current.getRegion()
+                        + '\n' + "Cantidad de veces que ha postulado al cargo: " + current.getCantCarg()
+                        + "\n\n");
+            }
+            escritor.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

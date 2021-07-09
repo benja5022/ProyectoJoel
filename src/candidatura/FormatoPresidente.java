@@ -21,12 +21,12 @@ import java.util.logging.Logger;
 public class FormatoPresidente implements CandidatosImprimible {
 
     @Override
-    public void imprimir(Cargos cargos) {
+    public void imprimir(Object[] array,int anio) {
         
         try {
             FileWriter escritor = new FileWriter("Reportes\\Presidentes.txt", StandardCharsets.UTF_8);
             Presidente current;
-            Presidente[] coleccionPresidentes = cargos.obtenerArrayPresidente();
+            Presidente[] coleccionPresidentes = (Presidente[]) array;
             escritor.write("Candidatos a la Presidencia:\n");
             for (int i = 0; i < coleccionPresidentes.length; i++) {
                 current = coleccionPresidentes[i];
@@ -43,5 +43,26 @@ public class FormatoPresidente implements CandidatosImprimible {
         }
         
     }
+
+    @Override
+    public void imprimir(Object[] array) {
+        try {
+            FileWriter escritor = new FileWriter("Reportes\\Presidentes.txt", StandardCharsets.UTF_8);
+            Presidente current;
+            Presidente[] coleccionPresidentes = (Presidente[]) array;
+            escritor.write("Candidatos a la Presidencia:\n");
+            for (int i = 0; i < coleccionPresidentes.length; i++) {
+                current = coleccionPresidentes[i];
+                escritor.write("Nombre Candidato: " + current.getNombre()
+                    + '\n' + "Partido Político: " + current.getPartido()
+                    + '\n' + "Cantidad de veces que se ha postulado al cargo: " + current.getCantPresent()
+                    + '\n' + "Cantidad de veces que ha ejercido el cargo: " + current.getCantCarg()
+                    + "\n\n");
+            }
+            escritor.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
+        }    }
 
 }
