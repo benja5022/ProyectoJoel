@@ -20,12 +20,13 @@ import java.util.logging.Logger;
 
 public class FormatoConcejal implements CandidatosImprimible {
 
+
     @Override
-    public void imprimir(Cargos cargos) {
+    public void imprimir(Object[] array, int num) {
         try {
             FileWriter escritor = new FileWriter("Reportes\\Concejales.txt", StandardCharsets.UTF_8);
             Concejal current;
-            Concejal[] coleccionConcejales = cargos.obtenerArrayConcejal();
+            Concejal[] coleccionConcejales =(Concejal[]) array;
             escritor.write("Candidatos a ser Consejal:\n");
             for (int i = 0; i < coleccionConcejales.length; i++) {
                 current = coleccionConcejales[i];
@@ -39,8 +40,27 @@ public class FormatoConcejal implements CandidatosImprimible {
 
         } catch (IOException ex) {
             Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }    }
 
-    }
+    @Override
+    public void imprimir(Object[] array) {
+        try {
+            FileWriter escritor = new FileWriter("Reportes\\Concejales.txt", StandardCharsets.UTF_8);
+            Concejal current;
+            Concejal[] coleccionConcejales =(Concejal[]) array;
+            escritor.write("Candidatos a ser Consejal:\n");
+            for (int i = 0; i < coleccionConcejales.length; i++) {
+                current = coleccionConcejales[i];
+                escritor.write("Nombre Candidato: " + current.getNombre()
+                    + '\n' + "Comuna: " + current.getComuna() 
+                    + '\n' + "Partido Político: " + current.getPartido()
+                    + '\n' + "Cantidad de años que ha ejercido el cargo: " + current.getCantAnos()
+                    +"\n\n");
+            }
+            escritor.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
+        }    }
 
 }

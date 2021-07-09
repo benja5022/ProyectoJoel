@@ -21,12 +21,12 @@ import java.util.logging.Logger;
 public class FormatoAlcaldes implements CandidatosImprimible {
 
     @Override
-    public void imprimir(Cargos cargos, int num) {
+    public void imprimir(Object[] alcaldes, int num) {
 
         try {
             FileWriter escritor = new FileWriter("Reportes\\Alcaldes.txt", StandardCharsets.UTF_8);
             Alcalde current;
-            Alcalde[] coleccionAlcaldes = cargos.obtenerArrayAlcaldes();
+            Alcalde[] coleccionAlcaldes =(Alcalde[]) alcaldes;
             escritor.write("Candidatos a la Alcaldia:\n");
             for (int i = 0; i < coleccionAlcaldes.length; i++) {
                 current = coleccionAlcaldes[i];
@@ -43,5 +43,26 @@ public class FormatoAlcaldes implements CandidatosImprimible {
         }
         
   }
+
+    @Override
+    public void imprimir(Object[] alcaldes) {
+        try {
+            FileWriter escritor = new FileWriter("Reportes\\Alcaldes.txt", StandardCharsets.UTF_8);
+            Alcalde current;
+            Alcalde[] coleccionAlcaldes =(Alcalde[]) alcaldes;
+            escritor.write("Candidatos a la Alcaldia:\n");
+            for (int i = 0; i < coleccionAlcaldes.length; i++) {
+                current = coleccionAlcaldes[i];
+                escritor.write("Nombre Candidato: " + current.getNombre()
+                        + '\n' + "Comuna: " + current.getComuna() 
+                        + '\n' + "Partido Político: " + current.getPartido()
+                        + '\n' + "Cantidad de años que ha ejercido el cargo : " + current.getCantAnos()
+                        +"\n\n");
+            }
+            escritor.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FormatoAlcaldes.class.getName()).log(Level.SEVERE, null, ex);
+        }    }
 
 }

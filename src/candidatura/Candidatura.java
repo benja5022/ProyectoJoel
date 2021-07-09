@@ -30,6 +30,8 @@ public class Candidatura {
         int opcion;
         int anoConsulta;
         AnosCandidatura aux;
+        
+        registro.imprimirReporteAnidado();
         try{
             do{
             opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
