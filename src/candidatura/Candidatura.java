@@ -64,7 +64,9 @@ public class Candidatura {
         
         car.setFormatoDeSalida(new FormatoReporteGeneral());
         car.imprimir();
-       
+
+        car.setFormatoDeSalida(new FormatoPartidosPoliticos());
+        car.imprimir();
         //Menu de opciones implementado con JOptionPane
         int opcion;
         try{

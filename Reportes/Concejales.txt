@@ -1,0 +1,26 @@
+Candidatos a ser Consejal:
+Nombre Candidato: Gonzalo Rojas
+Comuna: Vina
+Partido Político: Izquierda
+Cantidad de años que ha ejercido el cargo: 1
+
+Nombre Candidato: Don Cangrejo
+Comuna: Valparaiso
+Partido Político: Centro
+Cantidad de años que ha ejercido el cargo: 1
+
+Nombre Candidato: Patricio Estrella
+Comuna: Vina
+Partido Político: Izquierda
+Cantidad de años que ha ejercido el cargo: 1
+
+Nombre Candidato: John Bobi
+Comuna: Vina del Mar
+Partido Político: Izquierda
+Cantidad de años que ha ejercido el cargo: 4
+
+Nombre Candidato: Coco Legrand
+Comuna: Quillota
+Partido Político: Derecha
+Cantidad de años que ha ejercido el cargo: 8
+

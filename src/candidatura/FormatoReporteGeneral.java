@@ -5,8 +5,7 @@
  */
 package candidatura;
 
-import candidatura.Modelos.Persona;
-import candidatura.Modelos.Cargos;
+import candidatura.Modelos.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -23,17 +22,30 @@ public class FormatoReporteGeneral implements CandidatosImprimible {
     @Override
     public void imprimir(Cargos cargos) {
         try {
-            FileWriter escritor = new FileWriter("Reportes\\ReporteAnidado.txt", StandardCharsets.UTF_8);
+            FileWriter escritor = new FileWriter("Reportes\\Formato General Anidado.txt", StandardCharsets.UTF_8);
             int i, j;
-            String[] partidosPoliticos = cargos.retornarListadoPartidos();
-            Persona[] listadoCandidatos;
-            for (i = 0; i < partidosPoliticos.length; i++) {
-                listadoCandidatos = cargos.retornarConjuntoDeCandidatos(partidosPoliticos[i]);
-                escritor.write(partidosPoliticos[i] + ":\n");
-                for (j = 0; j < listadoCandidatos.length; j++) {
-                    escritor.write('\t' + listadoCandidatos[j].getNombre() + '\n');
-                }
+            
+            Alcalde[] coleccionAlcaldes = cargos.obtenerArrayAlcaldes();
+            escritor.write("Candidatos a Alcalde:\n");
+            for(i = 0; i < coleccionAlcaldes.length; i++){
+                escritor.write('\t' + coleccionAlcaldes[i].getNombre() + '\n');
             }
+            Presidente[] coleccionPresidente = cargos.obtenerArrayPresidente();
+            escritor.write("Candidatos a Presidente:\n");
+            for(i = 0; i < coleccionPresidente.length; i++){
+                escritor.write('\t' + coleccionPresidente[i].getNombre() + '\n');
+            }
+            Concejal[] coleccionConcejal = cargos.obtenerArrayConcejal();
+            escritor.write("Candidatos a Concejal:\n");
+            for(i = 0; i < coleccionConcejal.length; i++){
+                escritor.write('\t' + coleccionConcejal[i].getNombre() + '\n');
+            }
+            Gore[] coleccionGore = cargos.obtenerArrayGore();
+            escritor.write("Candidatos a Gore:\n");
+            for(i = 0; i < coleccionGore.length; i++){
+                escritor.write('\t' + coleccionGore[i].getNombre() + '\n');
+            }            
+
             escritor.close();
         } catch (IOException ex) {
             Logger.getLogger(FormatoReporteGeneral.class.getName()).log(Level.SEVERE, null, ex);

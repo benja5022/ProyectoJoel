@@ -1,0 +1,21 @@
+Candidatos a la Presidencia:
+Nombre Candidato: Manin Girao DoPele
+Partido Político: Izquierda
+Cantidad de veces que se ha postulado al cargo: 1
+Cantidad de veces que ha ejercido el cargo: 0
+
+Nombre Candidato: Calamardo Tentanculos
+Partido Político: Derecha
+Cantidad de veces que se ha postulado al cargo: 3
+Cantidad de veces que ha ejercido el cargo: 1
+
+Nombre Candidato: Lucas Cruz
+Partido Político: Derecha
+Cantidad de veces que se ha postulado al cargo: 1
+Cantidad de veces que ha ejercido el cargo: 1
+
+Nombre Candidato: Abraham Lincoln
+Partido Político: Centro
+Cantidad de veces que se ha postulado al cargo: 1
+Cantidad de veces que ha ejercido el cargo: 1
+

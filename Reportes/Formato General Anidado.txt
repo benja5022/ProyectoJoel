@@ -1,0 +1,21 @@
+Candidatos a Alcalde:
+	Abdul Rahim
+	Patrick Peterson
+	Jose Manuel Peña
+	Diego Palta
+	Dj Mendez
+Candidatos a Presidente:
+	Manin Girao DoPele
+	Calamardo Tentanculos
+	Lucas Cruz
+	Abraham Lincoln
+Candidatos a Concejal:
+	Gonzalo Rojas
+	Don Cangrejo
+	Patricio Estrella
+	John Bobi
+	Coco Legrand
+Candidatos a Gore:
+	Laflare Portales
+	Mel Gibson
+	Troy Mclure

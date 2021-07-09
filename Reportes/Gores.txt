@@ -1,0 +1,16 @@
+Candidatos a ser gores:
+Nombre Candidato: Laflare Portales
+Partido Político: Centro
+Región: Valparaiso
+Cantidad de veces que ha postulado al cargo: 1
+
+Nombre Candidato: Mel Gibson
+Partido Político: Derecha
+Región: Valparaiso
+Cantidad de veces que ha postulado al cargo: 1
+
+Nombre Candidato: Troy Mclure
+Partido Político: Centro
+Región: Metropolitana
+Cantidad de veces que ha postulado al cargo: 1
+
