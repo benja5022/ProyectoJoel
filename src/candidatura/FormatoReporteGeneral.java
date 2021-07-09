@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class FormatoReporteGeneral implements CandidatosImprimible {
 
     @Override
-    public void imprimir(Cargos cargos) {
+    public void imprimir(Cargos cargos, int num) {
         try {
             FileWriter escritor = new FileWriter("Reportes\\Formato General Anidado.txt", StandardCharsets.UTF_8);
             int i, j;

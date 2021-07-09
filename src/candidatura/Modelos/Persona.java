@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package candidatura.Modelos;
-
+import candidatura.ColeccionAnios;
 import candidatura.Informacion;
 
 /**
@@ -48,9 +48,5 @@ public abstract class Persona implements Informacion{
     }
     
 
-
-    /**
-     *
-     */
-    abstract public void agregar();
+    abstract public void agregar(ColeccionAnios registro);
 }
