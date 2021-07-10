@@ -22,28 +22,28 @@ public class FormatoReporteGeneral implements CandidatosImprimible {
     @Override
     public void imprimir(Object[] array, int num) {
         try {
-            FileWriter escritor = new FileWriter("Reportes\\Formato General Anidado.txt", StandardCharsets.UTF_8);
+            FileWriter escritor = new FileWriter("Reportes\\Formato General Anidado.txt", StandardCharsets.UTF_8,true);
             int i, j;
-            
+            escritor.write("Año: "+ num +"\n");
             Alcalde[] coleccionAlcaldes = (Alcalde[]) array[0];
-            escritor.write("Candidatos a Alcalde:\n");
+            escritor.write("\tCandidatos a Alcalde:\n");
             for(i = 0; i < coleccionAlcaldes.length; i++){
-                escritor.write('\t' + coleccionAlcaldes[i].getNombre() + '\n');
+                escritor.write("\t\t" + coleccionAlcaldes[i].getNombre() + '\n');
             }
             Presidente[] coleccionPresidente = (Presidente[]) array[1];
-            escritor.write("Candidatos a Presidente:\n");
+            escritor.write("\tCandidatos a Presidente:\n");
             for(i = 0; i < coleccionPresidente.length; i++){
-                escritor.write('\t' + coleccionPresidente[i].getNombre() + '\n');
+                escritor.write("\t\t" + coleccionPresidente[i].getNombre() + '\n');
             }
             Concejal[] coleccionConcejal = (Concejal[]) array[2];
-            escritor.write("Candidatos a Concejal:\n");
+            escritor.write("\tCandidatos a Concejal:\n");
             for(i = 0; i < coleccionConcejal.length; i++){
-                escritor.write('\t' + coleccionConcejal[i].getNombre() + '\n');
+                escritor.write("\t\t" + coleccionConcejal[i].getNombre() + '\n');
             }
             Gore[] coleccionGore = (Gore[]) array[3];
-            escritor.write("Candidatos a Gore:\n");
+            escritor.write("\tCandidatos a Gore:\n");
             for(i = 0; i < coleccionGore.length; i++){
-                escritor.write('\t' + coleccionGore[i].getNombre() + '\n');
+                escritor.write("\t\t" + coleccionGore[i].getNombre() + '\n');
             }            
 
             escritor.close();

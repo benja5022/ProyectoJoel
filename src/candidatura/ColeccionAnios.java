@@ -154,10 +154,11 @@ public class ColeccionAnios {
     }
     
     public void imprimirReporteAnidado(){
-        // poner funcion que elimine el archivo "anidado"
+        (new File("Reportes\\Formato General Anidado.txt")).delete();
         for (int i = 0; i < this.fechas.size(); i++) {
             this.obtenerAnioIndice(i).imprimir(this.obtenerAnioIndice(i).getAnio(),4);
         }
     }
 
 }
+

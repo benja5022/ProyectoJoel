@@ -1,0 +1,27 @@
+Año: 2016
+	Candidatos a Alcalde:
+		Abdul Rahim
+		Patrick Peterson
+		Jose Manuel Peña
+	Candidatos a Presidente:
+		Manin Girao DoPele
+		Calamardo Tentanculos
+	Candidatos a Concejal:
+		Gonzalo Rojas
+		Don Cangrejo
+		Patricio Estrella
+	Candidatos a Gore:
+		Laflare Portales
+Año: 2020
+	Candidatos a Alcalde:
+		Diego Palta
+		Dj Mendez
+	Candidatos a Presidente:
+		Lucas Cruz
+		Abraham Lincoln
+	Candidatos a Concejal:
+		John Bobi
+		Coco Legrand
+	Candidatos a Gore:
+		Mel Gibson
+		Troy Mclure
