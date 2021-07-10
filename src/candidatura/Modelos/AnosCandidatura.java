@@ -246,7 +246,7 @@ public class AnosCandidatura {
                 this.car.setFormatoDeSalida(new FormatoReporteGeneral());
                 break;
         }
-        this.car.imprimir(tipo,anio);
+        this.car.imprimir(anio,tipo);
     }
     
     public void imprimir(int tipo){
