@@ -76,6 +76,30 @@ public class ColeccionAnios {
         AnosCandidatura num3 = registro.obtenerAnioC(anoConsulta);
         return num3;
     }
+    
+    public boolean buscar (ColeccionAnios registro, int anioC){
+        boolean flag= false;
+        for(int i=0; i < registro.fechas.size();i++){
+            if (anioC == registro.fechas.get(i).getAnio()){
+                flag=true;
+                return flag;
+            }
+        }
+        return flag;
+    }
+    
+    public AnosCandidatura ingreso(ColeccionAnios registro) {
+
+        int anoConsulta = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "Ingrese el año en el que se postula al cargo público\n",
+                JOptionPane.QUESTION_MESSAGE));
+        
+        if(buscar(registro, anoConsulta)){
+            
+        }
+        
+        return num3;
+    }
 
     public void mostrarAnios(ColeccionAnios lista) {
 
