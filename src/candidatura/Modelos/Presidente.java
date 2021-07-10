@@ -51,7 +51,7 @@ public class Presidente extends Persona{
 
     
     @Override
-    public void agregar(ColeccionAnios registro) {
+    public void agregar(ColeccionAnios registro) { 
         
         AnosCandidatura aux1= registro.consulta(registro);
         String nom=JOptionPane.showInputDialog("Ingrese el nombre del Candidato");
